@@ -1,73 +1,38 @@
-# Urban Accessibility Analysis: Ethiopia
+# Ethiopia Population & Density Analysis
 
-## 📍 Project Overview
-This project analyzes population distribution across Ethiopia at multiple administrative levels — **Woreda**, **Zone**, and **Region** — using geospatial and raster data. It supports urban accessibility planning by identifying demographic concentrations and spatial patterns.
+## Project Overview
+This project analyzes Ethiopia’s population distribution and density at the Woreda and Region levels using resampled WorldPop data. It highlights demographic patterns and provides recruiter‑friendly visualizations.
 
----
+## Data Sources
+- WorldPop 100m raster (resampled to 1km)
+- Ethiopia administrative boundaries (Woreda shapefiles)
 
-## 📂 Data Sources
-- **Population Raster**: WorldPop 2020, 100m resolution, resampled to 1km for computational efficiency.
-- **Administrative Boundaries**: GADM-derived GeoPackage (`Ethiopia_All`) with Region, Zone, and Woreda layers.
-- **Cleaned Woreda Boundaries**: `woredas_cleaned` layer in `ethiopia_accessibility.gpkg`.
+## Methodology
+- Resampled raster for computational feasibility
+- Zonal statistics (population sum, mean density per Woreda)
+- Regional aggregation for summaries
+- Visualizations (bar charts, choropleths with labels)
 
----
+## Results
 
-## 🧭 Methodology
+### Total Population by Region
+![Total Population by Region](assets/images/total_population_by_region(Ethiopia).png)
 
-### 1. Raster Preprocessing
-- Resampled 100m population raster to 1km using average aggregation.
-- Verified resolution and dimensions for consistency with vector layers.
+### Population by Region
+![Population by Region](assets/images/population_by_region(ethiopia).png)
 
-### 2. Zonal Statistics
-- Computed total population (`pop_sum`) and average density (`pop_mean_density`) per Woreda using zonal statistics.
-- Reprojected all vector layers to **EPSG:4326** to ensure valid spatial joins.
+### Population Density by Region
+![Population Density by Region](assets/images/population_density_by_region(ethiopia).png)
 
-### 3. Spatial Joins & Aggregation
-- Joined Woredas with Zones and Regions using `gpd.sjoin(..., predicate="intersects")`.
-- Aggregated population statistics at:
-  - **Woreda level** → `woredas_population_summary.csv`
-  - **Zone level** → `zones_population_summary.csv`
-  - **Region level** → `regions_population_summary.csv`
+### Population Density by Woreda
+![Population Density by Woreda](assets/images/population_density_by_region.png)
+## Key Insights
+- Regions X and Y show the highest total populations.
+- Woredas A and B have the highest densities.
+- Density patterns reveal urban concentration but also highlight rural spread.
 
----
-
-## 📊 Visualizations
-
-### 🔹 Bar Chart: Total Population by Region
-- Highlights demographic weight of each Region.
-- Sorted for easy comparison.
-
-### 🔹 Choropleth Maps
-- **Map 1**: Total population by Region (shaded by `pop_sum`)
-- **Map 2**: Average population density by Region (shaded by `pop_mean_density`)
-- **Zone names labeled** on both maps for geographic clarity.
-
----
-
-## 📦 Outputs
-- `ethiopia_accessibility.gpkg` → cleaned Woreda geometries.
-- `eth_pop_1km.tif` → resampled population raster.
-- `woredas_population_summary.csv` → Woreda-level stats.
-- `zones_population_summary.csv` → Zone-level stats.
-- `regions_population_summary.csv` → Region-level stats.
-- Side-by-side maps and bar charts embedded in notebook.
-
----
-
-## 🧠 Key Insights
-- Oromia and Amhara dominate in total population.
-- Addis Ababa and Dire Dawa show high density despite small area.
-- Choropleth maps reveal spatial disparities critical for accessibility planning.
-
----
-
-## 🛠️ Tools Used
-- Python, GeoPandas, Rasterio, Matplotlib
-- Jupyter Notebook (Kaggle environment)
-
----
-
-## 👤 Author
-**Aron**  
-Chief Information & Technology Officer | Data Scientist | GIS Enthusiast  
-[LinkedIn](#) | [GitHub](#) | [Kaggle](#)
+## Next Steps
+Future work will expand into a multi‑factor Urban Accessibility Index, incorporating:
+- Service reach (health, education, markets, transport hubs)
+- Mobility friction (road density, terrain slope, congestion proxies)
+- Demand pressure (population‑to‑service ratios)
