@@ -27,9 +27,9 @@ This project analyzes Ethiopia’s population distribution and density at the Wo
 ### Population Density by Woreda
 ![Population Density by Woreda](assets/images/population_density_by_region.png)
 ## Key Insights
-- Regions X and Y show the highest total populations.
-- Woredas A and B have the highest densities.
-- Density patterns reveal urban concentration but also highlight rural spread.
+- 🌍 Oromia and Amhara show the highest total populations.
+- 🏙️ Addis Ketema and Lideta Woredas have the highest densities.
+- 📈 Density patterns reveal urban concentration but also highlight rural spread.
 
 ## Next Steps
 Future work will expand into a multi‑factor Urban Accessibility Index, incorporating:
