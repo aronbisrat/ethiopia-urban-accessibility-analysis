@@ -1,0 +1,12 @@
+name: ethiopia-accessibility
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pandas
+  - numpy
+  - matplotlib
+  - geopandas
+  - rasterio
+  - shapely
+  - jupyter

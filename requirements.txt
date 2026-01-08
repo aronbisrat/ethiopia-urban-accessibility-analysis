@@ -1,0 +1,13 @@
+pandas
+numpy
+matplotlib
+geopandas
+rasterio
+shapelypandas
+numpy
+matplotlib
+seaborn
+jupyterlab
+notebook
+requests
+openpyxl
